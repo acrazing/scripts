@@ -10,6 +10,16 @@ git clone https://github.com/acrazing/scripts.git
 sh ./scripts/install.sh
 ```
 
+## Commands List
+
+```bash
+Commands:
+funcs.sh: util functions
+help.sh: Get all installed commands on your machine
+install.sh: Install scripts to your machine
+readme.sh: [Internal] generate readme for the project
+```
+
 ## Commands
 
 

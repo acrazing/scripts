@@ -28,6 +28,12 @@ git clone https://github.com/acrazing/scripts.git
 sh ./scripts/install.sh
 \`\`\`
 
+## Commands List
+
+\`\`\`bash
+$(./help.sh)
+\`\`\`
+
 ## Commands
 
 " > $file

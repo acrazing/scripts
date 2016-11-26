@@ -1,5 +1,7 @@
 # Utils commands for developer
 
+This is a project hold on some useful shell/python scripts for developer
+
 ## Install
 
 ```bash

@@ -12,15 +12,14 @@ __intro__="util functions"
 
 help() {
     if [ $# -gt 0 ]; then
-        echo -e "\033[31mERROR: $@\033[0m"
+        pe "ERROR: $@"
         echo
     fi
-    echo -e "\033[1m$(basename $0)\033[0m
-    $__intro__
-
-\033[1mUsage\033[0m:
-    $__help__
-"
+    pb $(basename $0):
+    echo "    $__intro__"
+    echo
+    pb Usage:
+    echo "    $__help__"
     if [ $# -gt 0 ]; then
         exit 1
     else 
@@ -47,6 +46,30 @@ args() {
     esac
 }
 
+pe() {
+    if [ -t 1 ]; then
+        echo -e "\033[31m$@\033[0m"
+    else
+        echo "$@"
+    fi
+}
+
+pw() {
+    if [ -t 1 ]; then
+        echo -e "\033[33m$@\033[0m"
+    else
+        echo "$@"
+    fi
+}
+
+pb() {
+    if [ -t 1 ]; then
+        echo -e "\033[1m$@\033[0m"
+    else
+        echo "$@"
+    fi
+}
+
 error() {
     echo -e "\033[31m$@\033[0m"
     exit 1
@@ -59,6 +82,7 @@ info() {
 
 warn() {
     echo -e "\033[33m$@\033[0m"
+    exit 0
 }
 
 if [ "$BASH_SOURCE" == "$0" ]; then

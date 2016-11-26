@@ -10,16 +10,22 @@ cd `dirname $0`
 . ./funcs.sh
 
 __intro__="Get all installed commands on your machine"
-__help__="$0"
+__help__=`basename $0`
 
 args "$@"
 
 cmds="$(find ./ -type f | grep -v '/\.')"
 
-warn "Commands:"
+pw Commands:
 
 for cmd in $cmds
 do
-    echo -e "\033[1m$(basename $cmd)\033[0m: $($cmd -i)"
+    if [ -x $cmd ]; then
+        if [ -t 1 ]; then
+            echo -e "\033[1m$(basename $cmd)\033[0m: $($cmd -i)"
+        else
+            echo "$(basename $cmd): $($cmd -i)"
+        fi
+    fi
 done
 

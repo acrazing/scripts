@@ -9,7 +9,7 @@
 . "$(dirname $0)/funcs.sh"
 
 __intro__="Install scripts to your machine"
-__help__="$0"
+__help__=`basename $0`
 
 args "$@"
 
@@ -17,7 +17,6 @@ filename="$(basename $0)"
 
 if [ "$(which $filename)" != "" ]; then
     warn "Already installed, run help.sh to get installed commands!"
-    exit 0
 fi
 
 cd "$(dirname $0)"
@@ -35,5 +34,5 @@ if [ "$(which $filename)" == "" ]; then
     error "Install failed, please check your ~/.bash_profile file content!"
 fi
 
-warn "Scripts installed, please restasrt your terminal or run . ~/.bash_profile to load scripts in current terminal"
+pw "Scripts installed, please restasrt your terminal or run . ~/.bash_profile to load scripts in current terminal"
 info "You can run help.sh to get installed commands list!"

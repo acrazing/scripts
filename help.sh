@@ -18,6 +18,9 @@ pw Commands:
 
 for cmd in $cmds
 do
+    if [ "$(git check-ignore $cmd)" != "" ] && [ "$1" != "--all" ]; then
+        continue
+    fi
     if [ -x $cmd ]; then
         if [ -t 1 ]; then
             echo -e "\033[1m$(basename $cmd)\033[0m: $($cmd -i)"

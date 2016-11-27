@@ -14,7 +14,6 @@ sh ./scripts/install.sh
 
 ```bash
 Commands:
-__test.sh: 
 funcs.sh: util functions
 help.sh: Get all installed commands on your machine
 install.sh: Install scripts to your machine
@@ -26,14 +25,6 @@ try_add_file.sh: Automaticly add file to vcs for svn/git
 
 ## Commands
 
-
-### __test.sh
-
-
-
-```bash
-
-```
 
 ### funcs.sh
 

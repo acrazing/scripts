@@ -40,7 +40,7 @@ cmds="$(find . -type f | grep -v '/\.')"
 
 for cmd in $cmds
 do
-    if [ -x $cmd ]; then
+    if [ -x $cmd ] && [ "$(git check-ignore $cmd)" == "" ]; then
         echo "### $(basename $cmd)
 
 $($cmd -i)

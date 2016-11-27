@@ -26,6 +26,9 @@ fi
 cwd=`pwd`
 for file in $@
 do
+    if [ "$cmd" == "git" ] && [ "$(git check-ignore $file)" != "" ]; then
+        continue
+    fi
     cd "`dirname $file`"
     $cmd add "`basename $file`"
     cd $cwd

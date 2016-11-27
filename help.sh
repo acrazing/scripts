@@ -6,13 +6,11 @@
 # @desc
 #
 
-cd `dirname $0`
-. ./funcs.sh
-
 __intro__="Get all installed commands on your machine"
 __help__=`basename $0`
 
-args "$@"
+cd `dirname $0`
+. ./funcs.sh
 
 cmds="$(find ./ -type f | grep -v '/\.')"
 

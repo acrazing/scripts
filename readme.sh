@@ -6,13 +6,11 @@
 # @desc
 #
 
-cd `dirname $0`
-. ./funcs.sh
-
 __intro__="[Internal] generate readme for the project"
 __help__=`basename $0`
 
-args "$@"
+cd `dirname $0`
+. ./funcs.sh
 
 file=README.md
 

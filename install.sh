@@ -6,12 +6,9 @@
 # @desc
 #
 
-. "$(dirname $0)/funcs.sh"
-
 __intro__="Install scripts to your machine"
 __help__=`basename $0`
-
-args "$@"
+. "$(dirname $0)/funcs.sh"
 
 filename="$(basename $0)"
 

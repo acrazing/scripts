@@ -7,8 +7,8 @@
 #
 set -e
 
-__help__="util functions for other shell commands"
-__intro__="util functions"
+__help__=${__help__:-"util functions for other shell commands"}
+__intro__=${__intro__:-"util functions"}
 
 help() {
     if [ $# -gt 0 ]; then
@@ -85,7 +85,5 @@ warn() {
     exit 0
 }
 
-if [ "$BASH_SOURCE" == "$0" ]; then
-    args "$@"
-fi
+args "$@"
 

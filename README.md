@@ -14,14 +14,26 @@ sh ./scripts/install.sh
 
 ```bash
 Commands:
+__test.sh: 
 funcs.sh: util functions
 help.sh: Get all installed commands on your machine
 install.sh: Install scripts to your machine
+new_command.sh: Create a script file under the installed directory as a global command, and open it by vim
+new_script.sh: create a shell style file and add execute permission
 readme.sh: [Internal] generate readme for the project
+try_add_file.sh: Automaticly add file to vcs for svn/git
 ```
 
 ## Commands
 
+
+### __test.sh
+
+
+
+```bash
+
+```
 
 ### funcs.sh
 
@@ -59,6 +71,30 @@ Usage:
     install.sh
 ```
 
+### new_command.sh
+
+Create a script file under the installed directory as a global command, and open it by vim
+
+```bash
+new_command.sh:
+    Create a script file under the installed directory as a global command, and open it by vim
+
+Usage:
+    new_command.sh <script name> [env=bash]
+```
+
+### new_script.sh
+
+create a shell style file and add execute permission
+
+```bash
+new_script.sh:
+    create a shell style file and add execute permission
+
+Usage:
+    new_script.sh <script name> [env=bash]
+```
+
 ### readme.sh
 
 [Internal] generate readme for the project
@@ -69,6 +105,18 @@ readme.sh:
 
 Usage:
     readme.sh
+```
+
+### try_add_file.sh
+
+Automaticly add file to vcs for svn/git
+
+```bash
+try_add_file.sh:
+    Automaticly add file to vcs for svn/git
+
+Usage:
+    try_add_file.sh <...files>
 ```
 
 ## License

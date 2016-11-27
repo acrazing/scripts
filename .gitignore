@@ -4,4 +4,8 @@
 .*~
 temp/
 .DS_Store
-
+__*
+kcats_*
+same_*
+baidu_*
+kid_*

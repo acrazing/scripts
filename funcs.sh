@@ -7,6 +7,16 @@
 #
 set -e
 
+git status 2>/dev/null 1>/dev/null
+if [ $? == 0 ]; then
+    user="$(git config --get user.name)"
+else
+    user="$(whoami)"
+fi
+email="$(git config --get user.email)"
+now="$(date '+%Y-%m-%d %H:%M:%S')"
+
+
 __help__=${__help__:-"util functions for other shell commands"}
 __intro__=${__intro__:-"util functions"}
 
@@ -87,3 +97,7 @@ warn() {
 
 args "$@"
 
+if [ "$1" == "--debug" ]; then
+    set -x
+    shift
+fi

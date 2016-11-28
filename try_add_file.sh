@@ -27,6 +27,7 @@ cwd=`pwd`
 for file in $@
 do
     if [ "$cmd" == "git" ] && [ "$(git check-ignore $file)" != "" ]; then
+        warn "This file is ignored by .gitignore file, could not add to vcs!"
         continue
     fi
     cd "`dirname $file`"

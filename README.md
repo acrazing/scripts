@@ -18,6 +18,7 @@ funcs.sh: util functions
 help.sh: Get all installed commands on your machine
 install.sh: Install scripts to your machine
 new_command.sh: Create a script file under the installed directory as a global command, and open it by vim
+new_file.sh: Create c style files
 new_script.sh: create a shell style file and add execute permission
 readme.sh: [Internal] generate readme for the project
 try_add_file.sh: Automaticly add file to vcs for svn/git
@@ -74,6 +75,23 @@ Usage:
     new_command.sh <script name> [env=bash]
 ```
 
+### new_file.sh
+
+Create c style files
+
+```bash
+new_file.sh:
+    Create c style files
+
+Usage:
+    new_file.sh <...filename>
+    For example:
+        new_file.sh src/index.tsx src/index.c src/index.cc
+        will create three files under src directory, and add c style file
+        comment to the file, and try to add it to vcs(git/svn)
+        if the filename endswith .tsx, will auto add import react line
+```
+
 ### new_script.sh
 
 create a shell style file and add execute permission
@@ -84,6 +102,10 @@ new_script.sh:
 
 Usage:
     new_script.sh <script name> [env=bash]
+    For example:
+        `new_script.sh hello/world.sh`
+        will create a file `world.sh` under ./hello directory
+        with shebang and some useful comments
 ```
 
 ### readme.sh

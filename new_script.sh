@@ -5,7 +5,11 @@
 # @since 2016-11-27 10:13:09
 # @desc
 #
-__help__="`basename $0` <script name> [env=bash]"
+__help__="`basename $0` <script name> [env=bash]
+    For example:
+        \``basename $0` hello/world.sh\`
+        will create a file \`world.sh\` under ./hello directory
+        with shebang and some useful comments"
 __intro__="create a shell style file and add execute permission"
 . "`dirname $0`/funcs.sh"
 
@@ -14,7 +18,7 @@ ENV=${2:-bash}
 echo "#!/usr/bin/env ${ENV}
 #
 # `basename $1`
-# @author $user
+# @author `user`
 # @since $now
 # @desc `basename $1`
 #

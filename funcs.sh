@@ -7,13 +7,16 @@
 #
 set -e
 
-git status 2>/dev/null 1>/dev/null
-if [ $? == 0 ]; then
-    user="$(git config --get user.name)"
-else
-    user="$(whoami)"
-fi
-email="$(git config --get user.email)"
+user() {
+    name="$(git config --get user.name | tr -d '[:space:]')"
+    echo -n ${name:-`whoami`}
+}
+
+email() {
+    name="$(git config --get user.email | tr -d '[:space:]')"
+    echo -n $name
+}
+
 now="$(date '+%Y-%m-%d %H:%M:%S')"
 
 
@@ -81,17 +84,17 @@ pb() {
 }
 
 error() {
-    echo -e "\033[31m$@\033[0m"
+    pe "ERROR: $@"
     exit 1
 }
 
 info() {
-    echo "$@"
+    echo "INFO: $@"
     exit 0
 }
 
 warn() {
-    echo -e "\033[33m$@\033[0m"
+    pw "WARN: $@"
     exit 0
 }
 

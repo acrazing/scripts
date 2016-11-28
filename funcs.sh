@@ -59,9 +59,20 @@ args() {
     esac
 }
 
+call() {
+    cmd="$1"
+    shift
+    if [ "$debug" == "debug" ]; then
+        "$cmd" "--debug" "$@"
+    else
+        "$cmd" "$@"
+    fi
+}
+
+
 pe() {
     if [ -t 1 ]; then
-        echo -e "\033[31m$@\033[0m"
+        echo -e "\033[31mERROR: $@\033[0m"
     else
         echo "$@"
     fi
@@ -69,7 +80,7 @@ pe() {
 
 pw() {
     if [ -t 1 ]; then
-        echo -e "\033[33m$@\033[0m"
+        echo -e "\033[33mWARN: $@\033[0m"
     else
         echo "$@"
     fi
@@ -84,7 +95,7 @@ pb() {
 }
 
 error() {
-    pe "ERROR: $@"
+    pe "$@"
     exit 1
 }
 
@@ -94,7 +105,7 @@ info() {
 }
 
 warn() {
-    pw "WARN: $@"
+    pw "$@"
     exit 0
 }
 
@@ -102,5 +113,6 @@ args "$@"
 
 if [ "$1" == "--debug" ]; then
     set -x
+    debug=debug
     shift
 fi

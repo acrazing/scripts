@@ -18,7 +18,9 @@ funcs.sh: util functions
 help.sh: Get all installed commands on your machine
 install.sh: Install scripts to your machine
 new_command.sh: Create a script file under the installed directory as a global command, and open it by vim
+new_empty.sh: Create empty files and add to vcs
 new_file.sh: Create c style files
+new_py.sh: Create python3 style files
 new_script.sh: create a shell style file and add execute permission
 readme.sh: [Internal] generate readme for the project
 try_add_file.sh: Automaticly add file to vcs for svn/git
@@ -75,6 +77,18 @@ Usage:
     new_command.sh <script name> [env=bash]
 ```
 
+### new_empty.sh
+
+Create empty files and add to vcs
+
+```bash
+new_empty.sh:
+    Create empty files and add to vcs
+
+Usage:
+    new_empty.sh <...files>
+```
+
 ### new_file.sh
 
 Create c style files
@@ -90,6 +104,18 @@ Usage:
         will create three files under src directory, and add c style file
         comment to the file, and try to add it to vcs(git/svn)
         if the filename endswith .tsx, will auto add import react line
+```
+
+### new_py.sh
+
+Create python3 style files
+
+```bash
+new_py.sh:
+    Create python3 style files
+
+Usage:
+    new_py.sh <...files>
 ```
 
 ### new_script.sh

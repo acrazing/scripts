@@ -26,28 +26,36 @@ git clone https://github.com/acrazing/scripts.git
 sh ./scripts/install.sh
 \`\`\`
 
-## Commands List
-
-\`\`\`bash
-$(./help.sh)
-\`\`\`
-
-## Commands
-
+## Index
 " > $file
 
 cmds="$(find . -type f | grep -v '/\.')"
 
 for cmd in $cmds
 do
+    cmd=`basename $cmd`
+    if [ -x "$cmd" ] && [ "$(git check-ignore $cmd)" == "" ]; then
+        echo "- [$cmd](#$(echo $cmd | sed -E 's/\.//')) - $("$cmd" -i)" >> $file
+    fi
+done
+
+echo "
+## Commands
+
+" >> $file
+
+for cmd in $cmds
+do
     if [ -x $cmd ] && [ "$(git check-ignore $cmd)" == "" ]; then
         echo "### $(basename $cmd)
 
-$($cmd -i)
+$($cmd -i) [source]($cmd)
 
 \`\`\`bash
 $($cmd -h)
 \`\`\`
+
+[top](#index)
 " >> $file
     fi
 done

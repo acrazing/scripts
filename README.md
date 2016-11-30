@@ -10,31 +10,28 @@ git clone https://github.com/acrazing/scripts.git
 sh ./scripts/install.sh
 ```
 
-## Commands List
+## Index
 
-```bash
-Commands:
-funcs.sh: util functions
-git_diff_files.sh: Get changed and exists files for git
-git_push.sh: commit changes to work tree and push it to 'origin' remote and change version for package.json
-help.sh: Get all installed commands on your machine
-install.sh: Install scripts to your machine
-new_command.sh: Create a script file under the installed directory as a global command, and open it by vim
-new_empty.sh: Create empty files and add to vcs
-new_file.sh: Create c style files
-new_py.sh: Create python3 style files
-new_script.sh: create a shell style file and add execute permission
-readme.sh: [Internal] generate readme for the project
-try_add_file.sh: Automaticly add file to vcs for svn/git
-ts_trim_sc.sh: Remove the end semicolons for import statement in '.ts(x?)' files
-```
+- [funcs.sh](#funcssh) - util functions
+- [git_diff_files.sh](#git_diff_filessh) - Get changed and exists files for git
+- [git_push.sh](#git_pushsh) - commit changes to work tree and push it to 'origin' remote and change version for package.json
+- [help.sh](#helpsh) - Get all installed commands on your machine
+- [install.sh](#installsh) - Install scripts to your machine
+- [new_command.sh](#new_commandsh) - Create a script file under the installed directory as a global command, and open it by vim
+- [new_empty.sh](#new_emptysh) - Create empty files and add to vcs
+- [new_file.sh](#new_filesh) - Create c style files
+- [new_py.sh](#new_pysh) - Create python3 style files
+- [new_script.sh](#new_scriptsh) - create a shell style file and add execute permission
+- [readme.sh](#readmesh) - [Internal] generate readme for the project
+- [try_add_file.sh](#try_add_filesh) - Automaticly add file to vcs for svn/git
+- [ts_trim_sc.sh](#ts_trim_scsh) - Remove the end semicolons for import statement in '.ts(x?)' files
 
 ## Commands
 
 
 ### funcs.sh
 
-util functions
+util functions [source](./funcs.sh)
 
 ```bash
 funcs.sh:
@@ -44,9 +41,11 @@ Usage:
     util functions for other shell commands
 ```
 
+[top](#index)
+
 ### git_diff_files.sh
 
-Get changed and exists files for git
+Get changed and exists files for git [source](./git_diff_files.sh)
 
 ```bash
 git_diff_files.sh:
@@ -58,9 +57,11 @@ Usage:
     The filter format is regex
 ```
 
+[top](#index)
+
 ### git_push.sh
 
-commit changes to work tree and push it to 'origin' remote and change version for package.json
+commit changes to work tree and push it to 'origin' remote and change version for package.json [source](./git_push.sh)
 
 ```bash
 git_push.sh:
@@ -84,9 +85,11 @@ Usage:
     version tag, and push it to remote
 ```
 
+[top](#index)
+
 ### help.sh
 
-Get all installed commands on your machine
+Get all installed commands on your machine [source](./help.sh)
 
 ```bash
 help.sh:
@@ -96,9 +99,11 @@ Usage:
     help.sh
 ```
 
+[top](#index)
+
 ### install.sh
 
-Install scripts to your machine
+Install scripts to your machine [source](./install.sh)
 
 ```bash
 install.sh:
@@ -108,9 +113,11 @@ Usage:
     install.sh
 ```
 
+[top](#index)
+
 ### new_command.sh
 
-Create a script file under the installed directory as a global command, and open it by vim
+Create a script file under the installed directory as a global command, and open it by vim [source](./new_command.sh)
 
 ```bash
 new_command.sh:
@@ -120,9 +127,11 @@ Usage:
     new_command.sh <script name> [env=bash]
 ```
 
+[top](#index)
+
 ### new_empty.sh
 
-Create empty files and add to vcs
+Create empty files and add to vcs [source](./new_empty.sh)
 
 ```bash
 new_empty.sh:
@@ -132,9 +141,11 @@ Usage:
     new_empty.sh <...files>
 ```
 
+[top](#index)
+
 ### new_file.sh
 
-Create c style files
+Create c style files [source](./new_file.sh)
 
 ```bash
 new_file.sh:
@@ -149,9 +160,11 @@ Usage:
         if the filename endswith .tsx, will auto add import react line
 ```
 
+[top](#index)
+
 ### new_py.sh
 
-Create python3 style files
+Create python3 style files [source](./new_py.sh)
 
 ```bash
 new_py.sh:
@@ -161,9 +174,11 @@ Usage:
     new_py.sh <...files>
 ```
 
+[top](#index)
+
 ### new_script.sh
 
-create a shell style file and add execute permission
+create a shell style file and add execute permission [source](./new_script.sh)
 
 ```bash
 new_script.sh:
@@ -177,9 +192,11 @@ Usage:
         with shebang and some useful comments
 ```
 
+[top](#index)
+
 ### readme.sh
 
-[Internal] generate readme for the project
+[Internal] generate readme for the project [source](./readme.sh)
 
 ```bash
 readme.sh:
@@ -189,9 +206,11 @@ Usage:
     readme.sh
 ```
 
+[top](#index)
+
 ### try_add_file.sh
 
-Automaticly add file to vcs for svn/git
+Automaticly add file to vcs for svn/git [source](./try_add_file.sh)
 
 ```bash
 try_add_file.sh:
@@ -201,9 +220,11 @@ Usage:
     try_add_file.sh <...files>
 ```
 
+[top](#index)
+
 ### ts_trim_sc.sh
 
-Remove the end semicolons for import statement in '.ts(x?)' files
+Remove the end semicolons for import statement in '.ts(x?)' files [source](./ts_trim_sc.sh)
 
 ```bash
 ts_trim_sc.sh:
@@ -214,6 +235,8 @@ Usage:
     If not set param all, will only check files that changed,
     or will check all files
 ```
+
+[top](#index)
 
 ## License
 

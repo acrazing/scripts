@@ -78,12 +78,20 @@ pe() {
     fi
 }
 
+pee() {
+    pe "$@" 1>&2
+}
+
 pw() {
     if [ -t 1 ]; then
         echo -e "\033[33mWARN: $@\033[0m"
     else
         echo "$@"
     fi
+}
+
+pwe() {
+    pw "$@" 1>&2
 }
 
 pb() {

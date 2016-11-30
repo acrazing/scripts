@@ -31,7 +31,7 @@ do
         continue
     fi
 
-    if [ "$cmd" == "git" ] && [ "$(git check-ignore \"$name\")" != "" ]; then
+    if [ "$cmd" == "git" ] && [ "$(git check-ignore "$name")" != "" ]; then
         cd "$cwd"
         pw "This file is ignored by .gitignore file, could not add to vcs!"
         continue

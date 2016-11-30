@@ -24,4 +24,4 @@ echo "#!/usr/bin/env ${ENV}
 #
 " > "$1"
 chmod +x "$1"
-try_add_file.sh "$1"
+call try_add_file.sh "$1"

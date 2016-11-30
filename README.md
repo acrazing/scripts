@@ -15,6 +15,8 @@ sh ./scripts/install.sh
 ```bash
 Commands:
 funcs.sh: util functions
+git_diff_files.sh: Get changed and exists files for git
+git_push.sh: commit changes to work tree and push it to 'origin' remote and change version for package.json
 help.sh: Get all installed commands on your machine
 install.sh: Install scripts to your machine
 new_command.sh: Create a script file under the installed directory as a global command, and open it by vim
@@ -24,6 +26,7 @@ new_py.sh: Create python3 style files
 new_script.sh: create a shell style file and add execute permission
 readme.sh: [Internal] generate readme for the project
 try_add_file.sh: Automaticly add file to vcs for svn/git
+ts_trim_sc.sh: Remove the end semicolons for import statement in '.ts(x?)' files
 ```
 
 ## Commands
@@ -39,6 +42,46 @@ funcs.sh:
 
 Usage:
     util functions for other shell commands
+```
+
+### git_diff_files.sh
+
+Get changed and exists files for git
+
+```bash
+git_diff_files.sh:
+    Get changed and exists files for git
+
+Usage:
+    git_diff_files.sh [filter]
+    If filter is set, will use this to filter file list
+    The filter format is regex
+```
+
+### git_push.sh
+
+commit changes to work tree and push it to 'origin' remote and change version for package.json
+
+```bash
+git_push.sh:
+    commit changes to work tree and push it to 'origin' remote and change version for package.json
+
+Usage:
+    git_push.sh [version=none] <message>
+    versions:
+        none: do nothing
+        patch: 1.1.1 => 1.1.2
+        minor: 1.1.1 => 1.2.0
+        major: 1.1.1 => 2.0.0
+    If the first input param is not one of the upon enum, will
+    treat as message, and version will be default value
+
+    If the branch is new, will set upstream to origin/branch
+
+    If no branch, will set as master
+    
+    If version is not none, will update version, and add
+    version tag, and push it to remote
 ```
 
 ### help.sh
@@ -156,6 +199,20 @@ try_add_file.sh:
 
 Usage:
     try_add_file.sh <...files>
+```
+
+### ts_trim_sc.sh
+
+Remove the end semicolons for import statement in '.ts(x?)' files
+
+```bash
+ts_trim_sc.sh:
+    Remove the end semicolons for import statement in '.ts(x?)' files
+
+Usage:
+    ts_trim_sc.sh [all]
+    If not set param all, will only check files that changed,
+    or will check all files
 ```
 
 ## License

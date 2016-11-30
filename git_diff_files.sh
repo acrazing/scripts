@@ -14,9 +14,10 @@ __help__="`basename $0` [filter]
 
 . "`dirname $0`/funcs.sh"
 
+files="$(git st -s | grep -E '^[^D]{3}' | sed -E 's/^.{3}(.* -> )?//')"
 
 if [ $# -gt 0 ]; then
-    git st -s | sed -E 's/^.{3}(.* -> )?//' | grep -E "$@"
+    echon "$files" | grep "$@"
 else
-    git st -s | sed -E 's/^.{3}(.* -> )?//'
+    echon "$files"
 fi

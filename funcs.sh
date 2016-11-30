@@ -7,6 +7,13 @@
 #
 set -e
 
+echon() {
+    for arg in $@
+    do
+        echo -e "$arg"
+    done
+}
+
 user() {
     name="$(git config --get user.name | tr -d '[:space:]')"
     echo -n ${name:-`whoami`}

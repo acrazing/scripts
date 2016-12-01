@@ -15,6 +15,7 @@ sh ./scripts/install.sh
 - [funcs.sh](#funcssh) - util functions
 - [git_diff_files.sh](#git_diff_filessh) - Get changed and exists files for git
 - [git_push.sh](#git_pushsh) - commit changes to work tree and push it to 'origin' remote and change version for package.json
+- [git_user.sh](#git_usersh) - Set local user and email for git
 - [help.sh](#helpsh) - Get all installed commands on your machine
 - [install.sh](#installsh) - Install scripts to your machine
 - [new_command.sh](#new_commandsh) - Create a script file under the installed directory as a global command, and open it by vim
@@ -83,6 +84,30 @@ Usage:
     
     If version is not none, will update version, and add
     version tag, and push it to remote
+```
+
+[top](#index)
+
+### git_user.sh
+
+Set local user and email for git [source](./git_user.sh)
+
+```bash
+git_user.sh:
+    Set local user and email for git
+
+Usage:
+    git_user.sh <id>
+        use cached name/email pair
+    git_user.sh <user.name> <user.email>
+        use new name email pair to set
+    git_user.sh <id> <user.name> <user.email>
+        add a cached id pair
+    git_user.sh --list
+        get cached pair
+    
+    This is use for set git config of 'user.name' and 'user.email'
+    If you own multiple identity, this is useful!
 ```
 
 [top](#index)

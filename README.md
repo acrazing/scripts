@@ -27,6 +27,7 @@ sh ./scripts/install.sh
 - [readme.sh](#readmesh) - [Internal] generate readme for the project
 - [try_add_file.sh](#try_add_filesh) - Automaticly add file to vcs for svn/git
 - [ts_trim_sc.sh](#ts_trim_scsh) - Remove the end semicolons for import statement in '.ts(x?)' files
+- [vim_ide.sh](#vim_idesh) - Config vim to be a ide
 
 ## Commands
 
@@ -287,6 +288,20 @@ Usage:
     ts_trim_sc.sh [all]
     If not set param all, will only check files that changed,
     or will check all files
+```
+
+[top](#index)
+
+### vim_ide.sh
+
+Config vim to be a ide [source](./vim_ide.sh)
+
+```bash
+vim_ide.sh:
+    Config vim to be a ide
+
+Usage:
+    vim_ide.sh
 ```
 
 [top](#index)

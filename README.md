@@ -13,6 +13,7 @@ sh ./scripts/install.sh
 ## Index
 
 - [funcs.sh](#funcssh) - util functions
+- [git_alias.sh](#git_aliassh) - Set git short alias
 - [git_diff_files.sh](#git_diff_filessh) - Get changed and exists files for git
 - [git_push.sh](#git_pushsh) - commit changes to work tree and push it to 'origin' remote and change version for package.json
 - [git_user.sh](#git_usersh) - Set local user and email for git
@@ -40,6 +41,33 @@ funcs.sh:
 
 Usage:
     util functions for other shell commands
+```
+
+[top](#index)
+
+### git_alias.sh
+
+Set git short alias [source](./git_alias.sh)
+
+```bash
+git_alias.sh:
+    Set git short alias
+
+Usage:
+    git_alias.sh
+    This only need to run once, after do it, you
+    can use `git config --list --global | grep alias.`
+    to get all alias
+
+    Currently, this command will set follow alias:
+
+    st:   shortcut for status
+    alog: shortcut to print commit history in online, hide merge commit
+    mlog: shortcut to print commit history in online, show merge commit
+    ci:   shortcut for commit
+    co:   shortcut for checkout
+    b:    shortcut for branch
+    
 ```
 
 [top](#index)

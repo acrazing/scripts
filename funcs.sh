@@ -7,6 +7,12 @@
 #
 set -e
 
+join() {
+    local IFS="$1"
+    shift;
+    echo "$*"
+}
+
 echon() {
     for arg in $@
     do

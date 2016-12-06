@@ -19,6 +19,7 @@ sh ./scripts/install.sh
 - [git_user.sh](#git_usersh) - Set local user and email for git
 - [help.sh](#helpsh) - Get all installed commands on your machine
 - [install.sh](#installsh) - Install scripts to your machine
+- [mac_copy.sh](#mac_copysh) - Execute command and copy the command and output to clipboard
 - [new_command.sh](#new_commandsh) - Create a script file under the installed directory as a global command, and open it by vim
 - [new_empty.sh](#new_emptysh) - Create empty files and add to vcs
 - [new_file.sh](#new_filesh) - Create c style files
@@ -165,6 +166,20 @@ install.sh:
 
 Usage:
     install.sh
+```
+
+[top](#index)
+
+### mac_copy.sh
+
+Execute command and copy the command and output to clipboard [source](./mac_copy.sh)
+
+```bash
+mac_copy.sh:
+    Execute command and copy the command and output to clipboard
+
+Usage:
+    mac_copy.sh <cmd> [...args]
 ```
 
 [top](#index)

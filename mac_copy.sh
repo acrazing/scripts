@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 #
 # mac_copy.sh
-# @author yangjunbao
-# @since 2016-12-06 11:37:55
+# @author acrazing
+# @since 2016-12-06 14:32:02
 # @desc mac_copy.sh
 #
 

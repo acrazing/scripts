@@ -15,13 +15,17 @@ __intro__="create a shell style file and add execute permission"
 
 ENV=${2:-bash}
 
+file=`basename $1`
+
+cd "`dirname $1`"
+
 echo "#!/usr/bin/env ${ENV}
 #
-# `basename $1`
+# $file
 # @author `user`
 # @since $now
-# @desc `basename $1`
+# @desc $file
 #
-" > "$1"
-chmod +x "$1"
-call try_add_file.sh "$1"
+" > "$file"
+chmod +x "$file"
+call try_add_file.sh "$file"

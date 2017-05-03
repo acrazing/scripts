@@ -23,6 +23,7 @@ __help__="`basename $0`
 
 . "`dirname $0`/funcs.sh"
 
+set +e
 git config --global --unset-all alias.st
 git config --global --unset-all alias.alog
 git config --global --unset-all alias.mlog

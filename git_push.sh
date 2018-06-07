@@ -27,8 +27,6 @@ __help__="`basename $0` [version=none] <message>
 
 set -xe
 
-call ts_trim_sc.sh call
-
 level=${1}
 msg=${2}
 
@@ -47,6 +45,10 @@ commit() {
     fi
     exit 0
 }
+
+if [ "$(git st -s)" == "" ]; then
+    exit 0
+fi
 
 if [ $# -eq 0 ]; then
     help "Please input commit message"

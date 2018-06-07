@@ -20,12 +20,10 @@ sh ./scripts/install.sh
 - [help.sh](#helpsh) - Get all installed commands on your machine
 - [install.sh](#installsh) - Install scripts to your machine
 - [mac_copy.sh](#mac_copysh) - Execute command and copy the command and output to clipboard
-- [new_command.sh](#new_commandsh) - Create a script file under the installed directory as a global command, and open it by vim
-- [new_empty.sh](#new_emptysh) - Create empty files and add to vcs
 - [new_file.sh](#new_filesh) - Create c style files
-- [new_py.sh](#new_pysh) - Create python3 style files
-- [new_script.sh](#new_scriptsh) - create a shell style file and add execute permission
+- [npm.sh](#npmsh) - use npmjs.org as registry temporary
 - [readme.sh](#readmesh) - [Internal] generate readme for the project
+- [stop.sh](#stopsh) - 
 - [try_add_file.sh](#try_add_filesh) - Automaticly add file to vcs for svn/git
 - [ts_trim_sc.sh](#ts_trim_scsh) - Remove the end semicolons for import statement in '.ts(x?)' files
 - [vim_ide.sh](#vim_idesh) - Config vim to be a ide
@@ -184,34 +182,6 @@ Usage:
 
 [top](#index)
 
-### new_command.sh
-
-Create a script file under the installed directory as a global command, and open it by vim [source](./new_command.sh)
-
-```bash
-new_command.sh:
-    Create a script file under the installed directory as a global command, and open it by vim
-
-Usage:
-    new_command.sh <script name> [env=bash]
-```
-
-[top](#index)
-
-### new_empty.sh
-
-Create empty files and add to vcs [source](./new_empty.sh)
-
-```bash
-new_empty.sh:
-    Create empty files and add to vcs
-
-Usage:
-    new_empty.sh <...files>
-```
-
-[top](#index)
-
 ### new_file.sh
 
 Create c style files [source](./new_file.sh)
@@ -231,34 +201,16 @@ Usage:
 
 [top](#index)
 
-### new_py.sh
+### npm.sh
 
-Create python3 style files [source](./new_py.sh)
-
-```bash
-new_py.sh:
-    Create python3 style files
-
-Usage:
-    new_py.sh <...files>
-```
-
-[top](#index)
-
-### new_script.sh
-
-create a shell style file and add execute permission [source](./new_script.sh)
+use npmjs.org as registry temporary [source](./npm.sh)
 
 ```bash
-new_script.sh:
-    create a shell style file and add execute permission
+npm.sh:
+    use npmjs.org as registry temporary
 
 Usage:
-    new_script.sh <script name> [env=bash]
-    For example:
-        `new_script.sh hello/world.sh`
-        will create a file `world.sh` under ./hello directory
-        with shebang and some useful comments
+    npm.sh cmd ...args
 ```
 
 [top](#index)
@@ -273,6 +225,16 @@ readme.sh:
 
 Usage:
     readme.sh
+```
+
+[top](#index)
+
+### stop.sh
+
+ [source](./stop.sh)
+
+```bash
+
 ```
 
 [top](#index)

@@ -25,7 +25,6 @@ sh ./scripts/install.sh
 - [readme.sh](#readmesh) - [Internal] generate readme for the project
 - [stop.sh](#stopsh) - kill a process use SIGKILL
 - [try_add_file.sh](#try_add_filesh) - Automaticly add file to vcs for svn/git
-- [ts_trim_sc.sh](#ts_trim_scsh) - Remove the end semicolons for import statement in '.ts(x?)' files
 - [vim_ide.sh](#vim_idesh) - Config vim to be a ide
 
 ## Commands
@@ -253,22 +252,6 @@ try_add_file.sh:
 
 Usage:
     try_add_file.sh <...files>
-```
-
-[top](#index)
-
-### ts_trim_sc.sh
-
-Remove the end semicolons for import statement in '.ts(x?)' files [source](./ts_trim_sc.sh)
-
-```bash
-ts_trim_sc.sh:
-    Remove the end semicolons for import statement in '.ts(x?)' files
-
-Usage:
-    ts_trim_sc.sh [all]
-    If not set param all, will only check files that changed,
-    or will check all files
 ```
 
 [top](#index)

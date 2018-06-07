@@ -23,7 +23,7 @@ sh ./scripts/install.sh
 - [new_file.sh](#new_filesh) - Create c style files
 - [npm.sh](#npmsh) - use npmjs.org as registry temporary
 - [readme.sh](#readmesh) - [Internal] generate readme for the project
-- [stop.sh](#stopsh) - 
+- [stop.sh](#stopsh) - kill a process use SIGKILL
 - [try_add_file.sh](#try_add_filesh) - Automaticly add file to vcs for svn/git
 - [ts_trim_sc.sh](#ts_trim_scsh) - Remove the end semicolons for import statement in '.ts(x?)' files
 - [vim_ide.sh](#vim_idesh) - Config vim to be a ide
@@ -231,10 +231,14 @@ Usage:
 
 ### stop.sh
 
- [source](./stop.sh)
+kill a process use SIGKILL [source](./stop.sh)
 
 ```bash
+stop.sh:
+    kill a process use SIGKILL
 
+Usage:
+    stop.sh regex
 ```
 
 [top](#index)

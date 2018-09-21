@@ -10,7 +10,7 @@ __intro__="[Internal] generate readme for the project"
 __help__=`basename $0`
 
 cd `dirname $0`
-. ./funcs.sh
+. _funcs.sh
 
 file=README.md
 

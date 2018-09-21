@@ -1,62 +1,39 @@
 #!/usr/bin/env bash
-#
-# git_push.sh
-# @author acrazing
-# @since 2016-11-29 14:38:30
-# @desc git_push.sh
-#
-__intro__="commit changes to work tree and push it to 'origin' remote and change version for package.json"
-__help__="`basename $0` [version=none] <message>
-    versions:
-        none: do nothing
-        patch: 1.1.1 => 1.1.2
-        minor: 1.1.1 => 1.2.0
-        major: 1.1.1 => 2.0.0
-    If the first input param is not one of the upon enum, will
-    treat as message, and version will be default value
+# Copyright 2018 yangjunbao <yangjunbao@shimo.im>. All rights reserved.
+# @since 2018-09-21 18:26:52
+[ "1" = "0" ] && . ./_funcs.sh
 
-    If the branch is new, will set upstream to origin/branch
-
-    If no branch, will set as master
-    
-    If version is not none, will update version, and add
-    version tag, and push it to remote
+__FILE__=$(basename $0)
+__DIR__=$(dirname $0)
+__intro__="commit changes to work tree and push it remote and change version for package.json"
+__help__="$__FILE__ [args]"
+__args__="
+    v:version:none:string:1:1:the version to update to [patch,major,major,none]
+    R:remote:origin:string:1:1:the remote name
+    T:trunk:release:string:1:1:the trunk branch
+    __:message::string:0:1:the commit message
 "
-
-. "`dirname $0`/funcs.sh"
-
-set -xe
-
-level=${1}
-msg=${2}
+OPT_trunk="release"
+OPT_remote="origin"
+OPT_version="none"
+OPT_message=""
+. "$__DIR__/_funcs.sh" "$@"
+set -e
 
 commit() {
-    branch=$(git branch | grep -E '^\* *' | sed -E 's/^\* *//')
-    branch=${branch:-master}
-    has=$(git branch -r | grep -E "origin/${branch}$" | wc -l)
-    git add .
-    git commit -m "${msg}"
-    git fetch origin
-    if [ $has -eq 0 ]; then
-        git push -u origin $branch
-    else
-        git rebase origin/$branch
-        git push origin $branch
+    branch="$(git rev-parse --abbrev-ref HEAD)"
+    if [ "$branch" = "HEAD" ]; then
+        exit_error "You are not at a work branch, cannot commit"
     fi
+    git add .
+    git commit -m "$OPT_message"
+    git_pull.sh --trunk "$OPT_trunk" --remote="$OPT_remote"
+    git push -u origin "$branch"
     exit 0
 }
 
 if [ "$(git st -s)" == "" ]; then
     exit 0
-fi
-
-if [ $# -eq 0 ]; then
-    help "Please input commit message"
-fi
-
-if [ $# -lt 2 ]; then
-    level=none
-    msg=${1}
 fi
 
 if [ ! -f package.json ]; then
@@ -67,7 +44,7 @@ major=$(awk -F '"' '/version/{print $4}' package.json | awk -F '.' '{print $1}')
 minor=$(awk -F '"' '/version/{print $4}' package.json | awk -F '.' '{print $2}')
 patch=$(awk -F '"' '/version/{print $4}' package.json | awk -F '.' '{print $3}')
 
-case ${level} in
+case "$OPT_version" in
     major)
         ((major++))
         minor=0
@@ -78,7 +55,6 @@ case ${level} in
         patch=0
         ;;
     patch)
-        echo $patch
         ((patch++))
         ;;
     *)
@@ -86,10 +62,9 @@ case ${level} in
         ;;
 esac
 
-msg="v${major}.${minor}.${patch} ${msg}"
+OPT_message="v${major}.${minor}.${patch} $OPT_message"
 
 sed -i '' "s/\(version\": *\"\)[^\"]*\(\"\)/\1${major}.${minor}.${patch}\2/g" package.json
 commit
 git tag "v${major}.${minor}.${patch}"
 git push --tags
-

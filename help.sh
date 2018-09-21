@@ -10,11 +10,11 @@ __intro__="Get all installed commands on your machine"
 __help__=`basename $0`
 
 cd `dirname $0`
-. ./funcs.sh
+. _funcs.sh
 
 cmds="$(find ./ -type f | grep -v '/\.')"
 
-pw Commands:
+echo_warn Commands:
 
 for cmd in $cmds
 do

@@ -27,12 +27,13 @@ commit() {
     fi
     git add .
     git commit -m "$OPT_message"
-    git_pull.sh --trunk "$OPT_trunk" --remote="$OPT_remote"
+    git_pull.sh --trunk "$OPT_trunk" --remote "$OPT_remote"
     git push -u origin "$branch"
     exit 0
 }
 
 if [ "$(git st -s)" == "" ]; then
+    info "Nothing to commit"
     exit 0
 fi
 

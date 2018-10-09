@@ -13,9 +13,12 @@ set -e
 
 
 for dir in *; do
+    if [ ! -d "$dir/.git" ]; then
+        continue
+    fi
     cd "$dir"
     if [ $(git status -s | wc -l) -gt 0 ]; then
-        pi "$dir: $(git config remote.origin.url) -> $(git rev-parse --abbrev-ref HEAD)"
+        echo_warn "$dir: $(git config remote.origin.url) -> $(git rev-parse --abbrev-ref HEAD)"
         git status -s
         echo
     fi

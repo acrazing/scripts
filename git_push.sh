@@ -20,52 +20,9 @@ OPT_message=""
 . "$__DIR__/_funcs.sh" "$@"
 set -e
 
-commit() {
-    branch="$(git rev-parse --abbrev-ref HEAD)"
-    if [ "$branch" = "HEAD" ]; then
-        exit_error "You are not at a work branch, cannot commit"
-    fi
-    git add .
-    git commit -m "$OPT_message"
-    git_pull.sh --trunk "$OPT_trunk" --remote "$OPT_remote"
-    git push -u origin "$branch"
-    exit 0
-}
+branch="$(git rev-parse --abbrev-ref HEAD)"
 
-if [ "$(git st -s)" == "" ]; then
-    info "Nothing to commit"
-    exit 0
-fi
-
-if [ ! -f package.json ]; then
-    commit
-fi
-
-major=$(awk -F '"' '/version/{print $4}' package.json | awk -F '.' '{print $1}')
-minor=$(awk -F '"' '/version/{print $4}' package.json | awk -F '.' '{print $2}')
-patch=$(awk -F '"' '/version/{print $4}' package.json | awk -F '.' '{print $3}')
-
-case "$OPT_version" in
-    major)
-        ((major++))
-        minor=0
-        patch=0
-        ;;
-    minor)
-        ((minor++))
-        patch=0
-        ;;
-    patch)
-        ((patch++))
-        ;;
-    *)
-        commit
-        ;;
-esac
-
-OPT_message="v${major}.${minor}.${patch} $OPT_message"
-
-sed -i '' "s/\(version\": *\"\)[^\"]*\(\"\)/\1${major}.${minor}.${patch}\2/g" package.json
-commit
-git tag "v${major}.${minor}.${patch}"
-git push --tags
+git add .
+git ci -m "$OPT_message"
+git pull -r "$OPT_remote" "$branch"
+git push --tags "$OPT_remote" "$branch"

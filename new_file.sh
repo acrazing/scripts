@@ -73,7 +73,7 @@ option go_package = \"$(go_full_package)\";"
         *.sh)
             content="#!/usr/bin/env bash\n# $copy\n# @since $now"
             X="1"
-            if [ "$PWD" = "$SCRIPT_ROOT" ]; then
+            if [ -f ./_funcs.sh ]; then
                 content="$content
 [ \"1\" = \"0\" ] && . ./_funcs.sh
 

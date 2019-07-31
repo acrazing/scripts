@@ -20,7 +20,7 @@ OPT_message=""
 . "$__DIR__/_funcs.sh" "$@"
 set -e
 
-branch="$(git rev-parse --abbrev-ref HEAD)"
+branch="$(git branch --show-current)"
 
 git add .
 git ci -m "$OPT_message"
